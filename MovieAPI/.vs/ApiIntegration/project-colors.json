@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "26399518-5a04-4c76-a631-019cafa2f6ca": {
+      "ProjectGuid": "26399518-5a04-4c76-a631-019cafa2f6ca",
+      "DisplayName": "Movie.ApiIntegration",
+      "ColorIndex": 0
+    },
+    "3bd7987d-65fe-49f2-9ae2-b507e9310f11": {
+      "ProjectGuid": "3bd7987d-65fe-49f2-9ae2-b507e9310f11",
+      "DisplayName": "Movie.Infrastructure",
+      "ColorIndex": 1
+    },
+    "1dfff934-273d-400d-939c-fff7dc523bde": {
+      "ProjectGuid": "1dfff934-273d-400d-939c-fff7dc523bde",
+      "DisplayName": "Movie.Core",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
