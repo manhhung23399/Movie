@@ -24,7 +24,7 @@ namespace Movie.Infrastructure.Reponsitories
                 if (string.IsNullOrEmpty(genreId))
                 {
                     var data = await _manager.Database().GetAsync(ArgumentEntities.Genre);
-                    if(data.Body == null) return new List<Genre>();
+                    if(data.Body == "null") return new List<Genre>();
                     var convertDataToList = data.ResultAs<Dictionary<string, Genre>>();
                     return convertDataToList.Values.ToList();
                 }

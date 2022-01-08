@@ -12,5 +12,6 @@ namespace Movie.Core.Interfaces
         public IGenresReponsitory Genre { get; }
         public ICompanyReponsitory Company { get; }
         public ICastReponsitory Cast { get; }
+        public ICommentReponsitory Comment { get; }
     }
 }

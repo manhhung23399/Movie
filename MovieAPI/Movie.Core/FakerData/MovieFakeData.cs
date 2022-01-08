@@ -29,57 +29,52 @@ namespace Movie.Core.FakerData
                     var resDetail = await client.GetAsync(urlDetail);
                     string dataDetail = await resDetail.Content.ReadAsStringAsync();
                     var repDetail = JsonConvert.DeserializeObject<MovieData>(dataDetail);
-                    if (repDetail == null) throw new Exception("Error");
-                    var movie = new MovieModel
+                    if (repDetail != null && !string.IsNullOrEmpty(repDetail.overview))
                     {
-                        BackDrop = "https://image.tmdb.org/t/p/w500" + repDetail.backdrop_path,
-                        BackDropName = "",
-                        Id = repDetail.id,
-                        DateRelease = DateTime.ParseExact(repDetail.release_date, "yyyy-mm-dd", System.Globalization.CultureInfo.InvariantCulture),
-                        Description = repDetail.overview,
-                        Poster = "https://image.tmdb.org/t/p/w500" + repDetail.poster_path,
-                        PosterName = "",
-                        Score = repDetail.vote_count,
-                        Title = repDetail.title
-                    };
-                    repDetail.genres.ForEach(g =>
-                    {
-                        if (string.IsNullOrEmpty(movie.Genres)) movie.Genres += g.id;
-                        else
+                        var movie = new MovieModel
                         {
-                            movie.Genres += ",";
-                            movie.Genres += g.id;
-                        }
-                    });
-                    repDetail.production_companies.ForEach(com =>
-                    {
-                        if (string.IsNullOrEmpty(movie.Companies)) movie.Companies += com.id;
-                        else
+                            BackDrop = "https://image.tmdb.org/t/p/w500" + repDetail.backdrop_path,
+                            BackDropName = "",
+                            Id = repDetail.id,
+                            DateRelease = DateTime.ParseExact(repDetail.release_date, "yyyy-mm-dd", System.Globalization.CultureInfo.InvariantCulture),
+                            Description = repDetail.overview,
+                            Poster = "https://image.tmdb.org/t/p/w500" + repDetail.poster_path,
+                            PosterName = "",
+                            Score = repDetail.vote_average,
+                            VoteCount = repDetail.vote_count,
+                            Title = repDetail.title,
+                            Popularity = repDetail.popularity
+                        };
+                        repDetail.genres.ForEach(g =>
                         {
-                            movie.Companies += ",";
-                            movie.Companies += com.id;
-                        }
-                    });
-                    repDetail.production_companies.ForEach(com =>
-                    {
-                        if (string.IsNullOrEmpty(movie.Companies)) movie.Companies += com.id;
-                        else
+                            if (string.IsNullOrEmpty(movie.Genres)) movie.Genres += g.id;
+                            else
+                            {
+                                movie.Genres += ",";
+                                movie.Genres += g.id;
+                            }
+                        });
+                        repDetail.production_companies.ForEach(com =>
                         {
-                            movie.Companies += ",";
-                            movie.Companies += com.id;
-                        }
-                    });
-                    repDetail.credits.cast.ForEach(ca =>
-                    {
-                        if (string.IsNullOrEmpty(movie.Casts)) movie.Casts += ca.id;
-                        else
+                            if (string.IsNullOrEmpty(movie.Companies)) movie.Companies += com.id;
+                            else
+                            {
+                                movie.Companies += ",";
+                                movie.Companies += com.id;
+                            }
+                        });
+                        repDetail.credits.cast.ForEach(ca =>
                         {
-                            movie.Casts += ",";
-                            movie.Casts += ca.id;
-                        }
-                    });
+                            if (string.IsNullOrEmpty(movie.Casts)) movie.Casts += ca.id;
+                            else
+                            {
+                                movie.Casts += ",";
+                                movie.Casts += ca.id;
+                            }
+                        });
 
-                    action(movie);
+                        action(movie);
+                    }
                 });
             }
             catch(Exception ex) { throw ex; }
@@ -106,6 +101,7 @@ namespace Movie.Core.FakerData
         public double vote_average { get; set; }
         public int vote_count { get; set; }
         public string overview { get; set; }
+        public double popularity { get;set; }
     }
 
     public class MovieGenre

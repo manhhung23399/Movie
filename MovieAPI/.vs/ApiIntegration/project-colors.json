@@ -15,7 +15,27 @@
       "ProjectGuid": "1dfff934-273d-400d-939c-fff7dc523bde",
       "DisplayName": "Movie.Core",
       "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "dbcd5c4b-5ebc-4193-a27b-c52a2f4e1cc0": {
+      "ProjectGuid": "dbcd5c4b-5ebc-4193-a27b-c52a2f4e1cc0",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 3
+    },
+    "b9114d53-7dff-4b42-a904-13a4fc66bdd5": {
+      "ProjectGuid": "b9114d53-7dff-4b42-a904-13a4fc66bdd5",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 4
+    },
+    "f687d612-1358-4e75-b24b-8abf5863545b": {
+      "ProjectGuid": "f687d612-1358-4e75-b24b-8abf5863545b",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 6
 }

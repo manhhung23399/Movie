@@ -6,7 +6,6 @@ using Movie.Core.Entities;
 using Movie.Core.Interfaces;
 using Movie.Core.FakerData;
 using Movie.Core.Resources.Response;
-using Movie.Infrastructure.GlobalExceptionResponse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,16 +17,13 @@ namespace Movie.ApiIntegration.Controllers
     [Route(ApiRoutes.Cast.DEFAULT)]
     public class CastController : Controller
     {
-        private readonly IErrorMessage _status;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
         public CastController(
-            IErrorMessage status, 
             IUnitOfWork unitOfWork, 
             IMapper mapper)
         {
-            _status = status;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
@@ -36,88 +32,65 @@ namespace Movie.ApiIntegration.Controllers
         [Route(ApiRoutes.FAKE)]
         public async Task<IActionResult> FakeCastData([FromQuery] string url)
         {
-            try
-            {
-                var castFake = new CastFakeData();
-                await castFake.FakeAsync(url, async x => await _unitOfWork.Cast.AddOrUpdateCastAsync(x));
-                return Ok();
-            }
-            catch (Exception ex) { throw ex; }
+            var castFake = new CastFakeData();
+            await castFake.FakeAsync(url, async x => await _unitOfWork.Cast.AddOrUpdateCastAsync(x));
+            return Ok(ResponseBase.Success("Fake data success"));
         }
 
         [HttpPost]
         public async Task<IActionResult> AddCast([FromBody]CastDto castDto)
         {
-            try
-            {
-                await _unitOfWork.Cast.AddOrUpdateCastAsync(castDto);
-                return Ok(_status.Success(Notify.NOTIFY_SUCCESS));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(_status.Error(ex.Message));
-            }
+            await _unitOfWork.Cast.AddOrUpdateCastAsync(castDto);
+            return Ok(ResponseBase.Success(Notify.NOTIFY_SUCCESS));
         }
         [HttpPut(ApiRoutes.QUERY)]
         public async Task<IActionResult> UpdateCast([FromBody]CastDto castDto, [FromRoute] string id)
         {
-            try
-            {
-                await _unitOfWork.Cast.AddOrUpdateCastAsync(castDto, id);
-                return Ok(Notify.NOTIFY_UPDATE);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(_status.Error(ex.Message));
-            }
+            await _unitOfWork.Cast.AddOrUpdateCastAsync(castDto, id);
+            return Ok(ResponseBase.Success(Notify.NOTIFY_UPDATE));
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CastResponse>>> GetListCast()
         {
-            try
-            {
-                List<Cast> data = (List<Cast>)await _unitOfWork.Cast.GetCastAsync();
-                var casts = _mapper.Map<List<CastResponse>>(data);
-                return Ok(casts);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(_status.Error(ex.Message));
-            }
+            var data = (List<Cast>)await _unitOfWork.Cast.GetCastAsync();
+            var casts = _mapper.Map<IEnumerable<CastResponse>>(data);
+            return Ok(ResponseBase.Success(casts));
         }
         [HttpGet(ApiRoutes.QUERY)]
         public async Task<ActionResult<CastDetailResponse>> GetCast([FromRoute] string id)
         {
-            try
+            Cast cast = (Cast)await _unitOfWork.Cast.GetCastAsync(id);
+            CastDetailResponse result = _mapper.Map<CastDetailResponse>(cast);
+            IEnumerable<MovieModel> movies = (IEnumerable<MovieModel>)await _unitOfWork.Movie.GetMovieAsync();
+
+            var movieByCast = new List<MovieModel>();
+            foreach(var movie in movies)
             {
-                Cast cast = (Cast)await _unitOfWork.Cast.GetCastAsync(id);
-                CastDetailResponse result = _mapper.Map<CastDetailResponse>(cast);
-                List<MovieModel> movies = (List<MovieModel>)await _unitOfWork.Movie.GetMovieAsync();
-                List<MovieModel> movieByCast = movies.Where(mv => mv.Casts.Contains(cast.Id)).ToList();
-                if (movieByCast.Count > 0)
+                if(movie.Casts != null)
                 {
-                    List<MovieResponse> movieMapper = _mapper.Map<List<MovieResponse>>(movieByCast);
-                    result.Movies = movieMapper;
+                    if (movie.Casts.Contains(","))
+                    {
+                        var castByMovie = movie.Casts.Split(",").ToList();
+                        if (castByMovie.Any(x => x.Equals(cast.Id)))
+                        {
+                            movieByCast.Add(movie);
+                        }
+                    }
+                    else movieByCast.Add(movie);
                 }
-                return Ok(result);
             }
-            catch (Exception ex)
+            if (movieByCast.Count > 0)
             {
-                return BadRequest(_status.Error(ex.Message));
+                IEnumerable<MovieResponse> movieMapper = _mapper.Map<IEnumerable<MovieResponse>>(movieByCast);
+                result.Movies = movieMapper.ToList();
             }
+            return Ok(ResponseBase.Success(result));
         }
         [HttpDelete(ApiRoutes.QUERY)]
         public async Task<IActionResult> DeleteCast([FromRoute] string id)
         {
-            try
-            {
-                await _unitOfWork.Cast.DeleteCastAsync(id);
-                return Ok(_status.Success(Notify.NOTIFY_DELETE));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(_status.Error(ex.Message));
-            }
+            await _unitOfWork.Cast.DeleteCastAsync(id);
+            return Ok(ResponseBase.Success(Notify.NOTIFY_DELETE));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Movie.ApiIntegration.MapperProfile.MapperExtensions;
+using Movie.ApiIntegration.ServerContainer;
 using Movie.Core.Dtos;
 using Movie.Core.Entities;
 using Movie.Core.Resources.Response;
@@ -19,20 +20,14 @@ namespace Movie.ApiIntegration.MapperProfile
                 .ForMember(dto => dto.BackDropName,
                 conf => conf.MapFrom(opt => opt.BackDrop != null ? opt.BackDrop.FileName : ""))
                 .ForMember(dto => dto.Score,
-                conf => conf.MapFrom(opt => (new Random()).Next(10)));
+                conf => conf.MapFrom(opt => (new Random()).Next(10)))
+                .ForMember(dto => dto.Sources,
+                conf => conf.MapFrom(opt => new Sources { mPhimMoi = opt.Sources.mPhimMoi ?? ""  }));
 
-            //Response API List Movie
-            CreateMap<MovieModel, MovieResponse>()
-                .ForMember(dto => dto.id,
-                conf => conf.MapFrom(opt => opt.Id))
-                .ForMember(dto => dto.poster,
-                conf => conf.MapFrom(opt => opt.Poster))
-                .ForMember(dto => dto.backdrop,
-                conf => conf.MapFrom(opt => opt.BackDrop))
-                .ForMember(dto => dto.title,
-                conf => conf.MapFrom(opt => opt.Title));
-            //Response API Movie Detail
-            CreateMap<MovieModel, MovieDetailResponnse>();
+            CreateMap<MovieModel, MovieResponse>();
+            CreateMap<MovieModel, MovieDetailResponnse>()
+                .ForMember(dto => dto.Sources,
+                conf => conf.MapFrom(opt => opt.Sources.GetLink()));
         }
     }
 }

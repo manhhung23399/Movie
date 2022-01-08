@@ -79,7 +79,7 @@ namespace Movie.Infrastructure.Reponsitories
             {
                 string path = string.IsNullOrEmpty(castId) ? ArgumentEntities.Cast : $"{ArgumentEntities.Cast}/{castId}";
                 var data = await _manager.Database().GetAsync(path);
-                if (data.Body == "null") throw new Exception("Internal Error Server");
+                if (data.Body == "null") throw new Exception("Cast is not exist");
                 if (string.IsNullOrEmpty(castId))
                 {
                     var movies = data.ResultAs<Dictionary<string, Cast>>();

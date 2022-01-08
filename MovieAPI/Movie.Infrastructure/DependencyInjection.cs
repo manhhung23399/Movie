@@ -2,7 +2,6 @@
 using Movie.Core.Interfaces;
 using Movie.Infrastructure.DbContext;
 using Movie.Infrastructure.Extensions;
-using Movie.Infrastructure.GlobalExceptionResponse;
 using Movie.Infrastructure.Reponsitories;
 
 namespace Movie.Infrastructure
@@ -13,12 +12,12 @@ namespace Movie.Infrastructure
         {
             services.AddSingleton<IFirebaseManager, FirebaseManager>();
             services.AddScoped<IFileEvent>(x => new FileEvent(x.GetService<IFirebaseManager>(), rootImagePath));
-            services.AddSingleton<IErrorMessage, ErrorMessage>();
             services.AddScoped<IMovieReponsitory, MovieReponsitory>();
             services.AddScoped<IAccountReponsitory, AccountReponsitory>();
             services.AddScoped<IGenresReponsitory, GenresReponsitory>();
             services.AddScoped<ICompanyReponsitory, CompanyReponsitory>();
             services.AddScoped<ICastReponsitory, CastReponsitory>();
+            services.AddScoped<ICommentReponsitory, CommentReponsitory>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }

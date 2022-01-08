@@ -19,14 +19,17 @@ namespace Movie.Core.FakerData
             var rep = JsonConvert.DeserializeObject<CastCredit>(data);
             rep.credits.cast.ForEach(cast =>
             {
-                action(
-                    new Cast { 
-                        Id = cast.id, 
-                        Name = cast.name, 
-                        Avatar = "https://image.tmdb.org/t/p/w500" + cast.profile_path, 
-                        Biography = "", 
-                        Country = "Vietnam", 
-                        FileName = "" });
+                if(cast.known_for_department.Equals("Acting", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    action(new Cast
+                           {
+                               Id = cast.id,
+                               Name = cast.name,
+                               Avatar = "https://image.tmdb.org/t/p/w500" + cast.profile_path,
+                               Biography = "",
+                               FileName = ""
+                           });
+                }
             });
         }
     }
@@ -44,5 +47,6 @@ namespace Movie.Core.FakerData
         public string id { get; set; }
         public string name { get; set; }
         public string profile_path { get; set; }
+        public string known_for_department { get; set; }
     }
 }

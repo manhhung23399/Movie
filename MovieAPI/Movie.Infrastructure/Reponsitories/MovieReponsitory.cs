@@ -4,6 +4,7 @@ using Movie.Core.Constants;
 using Movie.Core.Dtos;
 using Movie.Core.Entities;
 using Movie.Core.Interfaces;
+using Movie.Core.Utils;
 using Movie.Infrastructure.Extensions;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,8 @@ namespace Movie.Infrastructure.Reponsitories
             try
             {
                 MovieModel movie = new MovieModel();
-                string path = string.IsNullOrEmpty(movieId) ? $"{ArgumentEntities.Movie}/{movie.Id}" : $"{ArgumentEntities.Movie}/{movieId}";
+                string idMovie = string.IsNullOrEmpty(movieId) ? movie.Id : movieId;
+                string path = $"{ArgumentEntities.Movie}/{idMovie}";
                 if (string.IsNullOrEmpty(movieId))
                 {
                     var checkMovieByTitle = await _manager.Database().GetAsync(ArgumentEntities.Movie);
@@ -45,8 +47,16 @@ namespace Movie.Infrastructure.Reponsitories
 
                 if (movieDtos.Poster != null) movie.Poster = await _file.UploadStreamAsync(movieDtos.Poster, ArgumentEntities.Movie);
                 if (movieDtos.BackDrop != null) movie.BackDrop = await _file.UploadStreamAsync(movieDtos.BackDrop, ArgumentEntities.Movie);
-                movie = _mapper.Map<MovieModel>(movieDtos);
-                await _manager.Database().SetAsync(path, movie);
+                if (string.IsNullOrEmpty(movieId))
+                {
+                    movie = _mapper.Map<MovieModel>(movieDtos);
+                    await _manager.Database().SetAsync(path, movie);
+                }
+                else
+                {
+                    var updatedMovie = movieDtos.ReClass();
+                    await _manager.Database().UpdateAsync(path, updatedMovie);
+                }
             }
             catch(Exception ex)
             {
@@ -88,17 +98,18 @@ namespace Movie.Infrastructure.Reponsitories
             {
                 string path = string.IsNullOrEmpty(movieId) ? $"{ArgumentEntities.Movie}" : $"{ArgumentEntities.Movie}/{movieId}";
                 var data = await _manager.Database().GetAsync(path);
-                if (data.Body == "null") throw new Exception("Internal Error Server");
+                if (data.Body == "null")
+                {
+                    if (!string.IsNullOrEmpty(movieId)) throw new Exception("Not Found");
+                    else return new List<MovieModel>();
+                }
                 if(string.IsNullOrEmpty(movieId))
                 {
                     var movies = data.ResultAs<Dictionary<string, MovieModel>>();
                     return movies.Values.ToList();
                 }
-                else
-                {
-                    var movie = data.ResultAs<MovieModel>();
-                    return movie;
-                }
+                var movie = data.ResultAs<MovieModel>();
+                return movie;
             }
             catch(Exception ex)
             {

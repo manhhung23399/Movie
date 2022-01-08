@@ -16,5 +16,7 @@ namespace Movie.Core
         public string? MessageSenderId { get; set; }
         public string? AppId { get; set; }
         public string? MeasurementId { get; set; }
+        public string? RefreshToken { get; set; }
+        public string? JwtAuthFirebase { get; set; }
     }
 }

@@ -1,10 +1,10 @@
-C:\Users\Binhh\Máy tính\Movie\MovieAPI\Movie.Core\bin\Release\netstandard2.1\Movie.Core.deps.json
-C:\Users\Binhh\Máy tính\Movie\MovieAPI\Movie.Core\bin\Release\netstandard2.1\Movie.Core.dll
-C:\Users\Binhh\Máy tính\Movie\MovieAPI\Movie.Core\bin\Release\netstandard2.1\Movie.Core.pdb
-C:\Users\Binhh\Máy tính\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.csproj.AssemblyReference.cache
-C:\Users\Binhh\Máy tính\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Binhh\Máy tính\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.AssemblyInfoInputs.cache
-C:\Users\Binhh\Máy tính\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.AssemblyInfo.cs
-C:\Users\Binhh\Máy tính\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.csproj.CoreCompileInputs.cache
-C:\Users\Binhh\Máy tính\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.dll
-C:\Users\Binhh\Máy tính\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.pdb
+E:\Movie\Movie\MovieAPI\Movie.Core\bin\Release\netstandard2.1\Movie.Core.deps.json
+E:\Movie\Movie\MovieAPI\Movie.Core\bin\Release\netstandard2.1\Movie.Core.dll
+E:\Movie\Movie\MovieAPI\Movie.Core\bin\Release\netstandard2.1\Movie.Core.pdb
+E:\Movie\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\Movie\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.AssemblyInfoInputs.cache
+E:\Movie\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.AssemblyInfo.cs
+E:\Movie\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.csproj.CoreCompileInputs.cache
+E:\Movie\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.dll
+E:\Movie\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.pdb
+E:\Movie\Movie\MovieAPI\Movie.Core\obj\Release\netstandard2.1\Movie.Core.csproj.AssemblyReference.cache

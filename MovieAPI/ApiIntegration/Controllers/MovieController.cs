@@ -1,21 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Movie.Core.Dtos;
-using System;
 using System.Threading.Tasks;
-using Movie.Infrastructure.GlobalExceptionResponse;
-using Movie.Infrastructure.Reponsitories;
 using Movie.Core.Interfaces;
 using Movie.Core.Constants;
-using System.Collections;
 using Movie.Core.Entities;
 using System.Collections.Generic;
-using Bogus;
-using Bogus.Hollywood;
 using Movie.Core.Resources.Response;
 using AutoMapper;
 using System.Linq;
 using Movie.Core.FakerData;
-using Movie.Core.Utils;
+using Microsoft.Extensions.Caching.Memory;
+using Movie.ApiIntegration.Cache;
+using Movie.Core.Filters.FIlterExtensions;
+using Movie.ApiIntegration.ServerContainer;
+using Movie.Infrastructure.Extensions.Generics;
 
 namespace Movie.ApiIntegration.Controllers
 {
@@ -23,163 +21,119 @@ namespace Movie.ApiIntegration.Controllers
     [Route(ApiRoutes.Movie.DEFAULT)]
     public class MovieController : ControllerBase
     {
-        private readonly IErrorMessage _status;
         private IUnitOfWork _unitOfWork;
         private IMapper _mapper;
-
-        public MovieController(IErrorMessage status, IUnitOfWork unitOfWork, IMapper mapper)
+        private ISetCacheMemory _memoryCache;
+        private IMemoryCache _memoryCacheEntry;
+        public MovieController(
+            IUnitOfWork unitOfWork,
+            IMapper mapper,
+            ISetCacheMemory memoryCache,
+            IMemoryCache memoryCacheEntry)
         {
-            _status = status;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _memoryCache = memoryCache;
+            _memoryCacheEntry = memoryCacheEntry;
         }
 
         [HttpGet]
         [Route(ApiRoutes.FAKE)]
         public async Task<IActionResult> FakeMovieData(
-            [FromQuery]string url, [FromQuery]string apiKey)
+            [FromQuery] string url, [FromQuery] string apiKey)
         {
-            try
-            {
-                var faker = new MovieFakeData();
-                await faker.FakeDataAsync(url, apiKey,
-                    async movie => await _unitOfWork.Movie.AddOrUpdateMovieAsync(movie));
-                return Ok();
-            }
-            catch(Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var faker = new MovieFakeData();
+            await faker.FakeDataAsync(url, apiKey,
+                async movie => await _unitOfWork.Movie.AddOrUpdateMovieAsync(movie));
+            return Ok();
         }
         [HttpPost]
         public async Task<IActionResult> AddMovie([FromBody] MovieDto movieDtos)
         {
-            try
-            {
-                await _unitOfWork.Movie.AddOrUpdateMovieAsync(movieDtos);
-                return Ok(Notify.NOTIFY_SUCCESS);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(_status.Error(ex.Message));
-            }
+            await _unitOfWork.Movie.AddOrUpdateMovieAsync(movieDtos);
+            return Ok(ResponseBase.Success(Notify.NOTIFY_SUCCESS));
         }
         [HttpPut(ApiRoutes.QUERY)]
-        public async Task<IActionResult> UpdateMovie([FromBody]MovieDto movieDtos, [FromRoute]string id)
+        public async Task<IActionResult> UpdateMovie([FromBody] MovieDto movieDtos, [FromRoute] string id)
         {
-            try
-            {
-                await _unitOfWork.Movie.AddOrUpdateMovieAsync(movieDtos, id);
-                return Ok(Notify.NOTIFY_UPDATE);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(_status.Error(ex.Message));
-            }
+            await _unitOfWork.Movie.AddOrUpdateMovieAsync(movieDtos, id);
+            return Ok(ResponseBase.Success(Notify.NOTIFY_UPDATE));
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MovieResponse>>> GetListMovie()
+        public async Task<ActionResult<IEnumerable<MovieResponse>>> GetMovie(
+            [FromQuery]string filter,
+            [FromQuery]string orderby,
+            [FromQuery]int random)
         {
-            try
+            List<MovieModel> result = new List<MovieModel>();
+            result = (List<MovieModel>)await _memoryCache.SetCacheAsync(result, 0, _memoryCacheEntry);
+            if (!string.IsNullOrEmpty(filter)) result = result.FilterData(filter);
+            if (!string.IsNullOrEmpty(orderby)) result = result.OrderByExtension(orderby);
+            if (random > 0)
             {
-                IEnumerable<MovieModel> result = (IEnumerable<MovieModel>)await _unitOfWork.Movie.GetMovieAsync();
-                return Ok(_mapper.Map<IEnumerable<MovieResponse>>(result));
+                var randomMovie = result.RandomElement(random).ToList();
+                result = randomMovie;
             }
-            catch (Exception ex)
-            {
-                return BadRequest(_status.Error(ex.Message));
-            }
+
+            var movies = _mapper.Map<IEnumerable<MovieResponse>>(result);
+            return Ok(ResponseBase.Success(movies));
         }
-        [HttpGet(ApiRoutes.QUERY)]
-        public async Task<ActionResult<MovieDetailResponnse>> GetMovie([FromRoute]string id)
+
+        [HttpGet("{movieId}")]
+        public async Task<IActionResult> GetCurrentMovie([FromRoute]string movieId)
         {
-            try
+            MovieModel resultDetail = (MovieModel)await _unitOfWork.Movie.GetMovieAsync(movieId);
+            MovieDetailResponnse resp = new MovieDetailBuilder()
+                                                .AddWithMovieId(resultDetail.Id)
+                                                .AddWithTitle(resultDetail.Title)
+                                                .AddWithDescription(resultDetail.Description)
+                                                .AddWithPoster(resultDetail.Poster)
+                                                .AddWithStatus(resultDetail.IsRelease)
+                                                .AddWithYearRelease(resultDetail.DateRelease.Year)
+                                                .AddWithVote(resultDetail.VoteCount, resultDetail.Score)
+                                                .Build();
+            var source = resultDetail.Sources.GetLink();
+            resp.Sources.Add(source);
+
+            var taskCompany = Task.Run(async () =>
             {
-                MovieModel result = (MovieModel)await _unitOfWork.Movie.GetMovieAsync(id);
-                MovieDetailResponnse resp = new MovieDetailResponnse
-                {
-                    Title = result.Title,
-                    Description = result.Description,
-                    Poster = result.Poster
-                };
-                var task1 = GetListGenericAsync(result.Companies.Split(",").ToList(), resp.Companies);
-                var task2 = GetListGenericAsync(result.Genres.Split(",").ToList(), resp.Genres);
-                var task3 = GetListGenericAsync(result.Casts.Split(",").ToList(), resp.Casts);
-                Task.WaitAll(task1, task2, task3);
-                return Ok(resp);
-            }
-            catch (Exception ex)
+                var companyComponent = new MovieComponentGenerics<Company>(_memoryCache, _memoryCacheEntry);
+                var companies = await companyComponent.ConvertListAsync(resultDetail.Companies.Split(",").ToList());
+                if (companies.Count > 0)
+                    resp.Companies = companies.Select(x => new CompanyResponse(x)).ToList();
+            });
+
+            var taskGenres = Task.Run(async () =>
             {
-                return BadRequest(_status.Error(ex.Message));
-            }
+                var genreComponent = new MovieComponentGenerics<Genre>(_memoryCache, _memoryCacheEntry);
+                var genres = await genreComponent.ConvertListAsync(resultDetail.Genres.Split(",").ToList());
+                if (genres.Count > 0)
+                    resp.Genres = genres.Select(x => new GenresResponse(x)).ToList();
+            });
+
+            var taskCast = Task.Run(async () =>
+            {
+                var castComponent = new MovieComponentGenerics<Cast>(_memoryCache, _memoryCacheEntry);
+                var casts = await castComponent.ConvertListAsync(resultDetail.Casts.Split(",").ToList());
+                if (casts.Count > 0)
+                    resp.Casts = casts.Select(
+                        x => new CastResponse
+                    {
+                        Biography = x.Biography,
+                        Avatar = x.Avatar,
+                        Name = x.Name,
+                        Id = x.Id,
+                    }).ToList();
+            });
+
+            Task.WaitAll(taskCompany, taskGenres, taskCast);
+            return Ok(ResponseBase.Success(resp));
         }
         [HttpDelete(ApiRoutes.QUERY)]
         public async Task<IActionResult> DeleteMovie([FromRoute]string id)
         {
-            try
-            {
-                await _unitOfWork.Movie.DeleteMovieAsync(id);
-                return Ok(_status.Success(Notify.NOTIFY_DELETE));
-            }
-            catch(Exception ex)
-            {
-                return BadRequest(_status.Error(ex.Message));
-            }
-        }
-
-        private async Task GetListGenericAsync(object input, object output)
-        {
-            if(output is List<Genre> genres)
-            {
-                if(input is List<string> genreIds)
-                {
-                    var genresData = (List<Genre>)await _unitOfWork.Genre.GetGenresAsync();
-                    genreIds.ForEach(g =>
-                    {
-                        g = g.Replace(" ", "");
-                        try
-                        {
-                            var item = genresData.FirstOrDefault(x => x.Id.Equals(g));
-                            if(item != null) genres.Add(item);
-                        }
-                        catch { }
-                    });
-                }
-            }
-            if (output is List<Company> companies)
-            {
-                if (input is List<string> companyIds)
-                {
-                    var companiesData = (List<Company>)await _unitOfWork.Company.GetCompanyAsync();
-                    companyIds.ForEach(c =>
-                    {
-                        try
-                        {
-                            c = c.Replace(" ", "");
-                            var item = companiesData.FirstOrDefault(x => x.Id.Equals(c));
-                            if(item != null) companies.Add(item);
-                        }
-                        catch { }
-                    });
-                }
-            }
-            if (output is List<Cast> casts)
-            {
-                if (input is List<string> castIds)
-                {
-                    var castsData = (List<Cast>)await _unitOfWork.Cast.GetCastAsync();
-                    castIds.ForEach(ca =>
-                    {
-                        try
-                        {
-                            ca = ca.Replace(" ", "");
-                            var item = castsData.FirstOrDefault(x => x.Id.Equals(ca));
-                            if(item != null) casts.Add(item);
-                        }
-                        catch { }
-                    });
-                }
-            }
+            await _unitOfWork.Movie.DeleteMovieAsync(id);
+            return Ok(ResponseBase.Success(Notify.NOTIFY_DELETE));
         }
     }
 }

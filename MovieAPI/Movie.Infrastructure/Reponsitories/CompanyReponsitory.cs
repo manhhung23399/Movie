@@ -23,7 +23,7 @@ namespace Movie.Infrastructure.Reponsitories
                 if (string.IsNullOrEmpty(companyId))
                 {
                     var data = await _manager.Database().GetAsync(ArgumentEntities.Company);
-                    if (data.Body == null) return new List<Company>();
+                    if (data.Body == "null") return new List<Company>();
                     var convertDataToList = data.ResultAs<Dictionary<string, Company>>();
                     return convertDataToList.Values.ToList();
                 }

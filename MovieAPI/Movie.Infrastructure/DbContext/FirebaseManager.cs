@@ -19,7 +19,10 @@ namespace Movie.Infrastructure.DbContext
         {
             _appSettings = options.Value;
         }
-
+        /// <summary>
+        /// Firebase Database Realtime
+        /// </summary>
+        /// <returns></returns>
         public IFirebaseClient Database()
         {
             IFirebaseConfig database = new FirebaseConfig
@@ -30,10 +33,24 @@ namespace Movie.Infrastructure.DbContext
 
             return new FirebaseClient(database);
         }
-
+        /// <summary>
+        /// Storage Firebase
+        /// </summary>
+        /// <returns></returns>
         public FirebaseStorage Storage()
         {
             return new FirebaseStorage(this._appSettings.StorageBucket);
+        }
+        /// <summary>
+        /// Authentication Firebase
+        /// </summary>
+        /// <returns></returns>
+        public Firebase.Auth.FirebaseAuthProvider Authentication()
+        {
+            var authConfig = new Firebase.Auth.FirebaseConfig(_appSettings.ApiKey);
+
+            Firebase.Auth.FirebaseAuthProvider authProvider = new Firebase.Auth.FirebaseAuthProvider(authConfig);
+            return authProvider;
         }
     }
 }

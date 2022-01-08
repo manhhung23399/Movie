@@ -8,5 +8,6 @@
         public const string AccountAdmin = "Admin";
         public const string Cast = "Cast";
         public const string Company = "Company";
+        public const string Comment = "Comment";
     }
 }

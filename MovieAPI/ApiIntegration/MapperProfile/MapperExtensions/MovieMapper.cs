@@ -10,6 +10,10 @@ namespace Movie.ApiIntegration.MapperProfile.MapperExtensions
     public class MovieMapper 
     {
         private IUnitOfWork _uniOfWork;
+        public MovieMapper(IUnitOfWork unitOfWork)
+        {
+            _uniOfWork = unitOfWork;    
+        }
         public async Task<List<Genre>> MapperGenres(string genreIds)
         {
             try

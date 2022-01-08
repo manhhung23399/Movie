@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Movie.Core.Entities
 {
-    public class Genre
+    public class Genre : EntityBase
     {
-        [JsonProperty("id")]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
-        [JsonProperty("name")]
         public string? Name { get; set; }
     }
 }

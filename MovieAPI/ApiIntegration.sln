@@ -5,9 +5,11 @@ VisualStudioVersion = 17.0.31808.319
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movie.ApiIntegration", "ApiIntegration\Movie.ApiIntegration.csproj", "{26399518-5A04-4C76-A631-019CAFA2F6CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.Core", "Movie.Core\Movie.Core.csproj", "{1DFFF934-273D-400D-939C-FFF7DC523BDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movie.Core", "Movie.Core\Movie.Core.csproj", "{1DFFF934-273D-400D-939C-FFF7DC523BDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.Infrastructure", "Movie.Infrastructure\Movie.Infrastructure.csproj", "{3BD7987D-65FE-49F2-9AE2-B507E9310F11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movie.Infrastructure", "Movie.Infrastructure\Movie.Infrastructure.csproj", "{3BD7987D-65FE-49F2-9AE2-B507E9310F11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F687D612-1358-4E75-B24B-8ABF5863545B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

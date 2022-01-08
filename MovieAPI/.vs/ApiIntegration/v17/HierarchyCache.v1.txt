@@ -1,276 +1,409 @@
-﻿++Solution 'ApiIntegration' ‎(1 of 1 project)
+﻿++Solution 'ApiIntegration' ‎(3 of 3 projects)
 i:{00000000-0000-0000-0000-000000000000}:ApiIntegration.sln
+++Solution Items
+i:{00000000-0000-0000-0000-000000000000}:Solution Items
+++Movie.Infrastructure
+i:{00000000-0000-0000-0000-000000000000}:Movie.Infrastructure
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\movie.infrastructure\bin\debug\netstandard2.1\movie.infrastructure.dll
+++Dependencies
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:>653
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:>652
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>976
+++DbContext
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\dbcontext\
+++Extensions
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\extensions\
+++UploadFile.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\extensions\uploadfile.cs
+++GlobalExceptionResponse
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\globalexceptionresponse\
+++Reponsitories
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\reponsitories\
+++AccountReponsitory.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\reponsitories\accountreponsitory.cs
+++CastReponsitory.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\reponsitories\castreponsitory.cs
+++CommentReponsitory.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\reponsitories\commentreponsitory.cs
+++CompanyReponsitory.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\reponsitories\companyreponsitory.cs
+++GenresReponsitory.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\reponsitories\genresreponsitory.cs
+++MovieReponsitory.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\reponsitories\moviereponsitory.cs
+++UnitOfWork.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\reponsitories\unitofwork.cs
+++DependencyInjection.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\dependencyinjection.cs
+++Frameworks
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:frameworks
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:frameworks
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:frameworks
+++Packages
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:packages
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:packages
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:packages
+++Projects
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:projects
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:projects
+++FirebaseManager.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\dbcontext\firebasemanager.cs
+++ErrorDetail.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\globalexceptionresponse\errordetail.cs
+++ErrorMessage.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\globalexceptionresponse\errormessage.cs
+++IErrorMessage.cs
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\globalexceptionresponse\ierrormessage.cs
+++NETStandard.Library
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.infrastructure\netstandard.library
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\netstandard.library
+++AutoMapper (10.1.1)
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:>1010
+++AutoMapper.Extensions.Microsoft.DependencyInjection (8.1.1)
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:>1009
+++Microsoft.AspNetCore.Hosting (2.2.7)
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:>1011
+++Movie.Core
+i:{3bd7987d-65fe-49f2-9ae2-b507e9310f11}:e:\movie\movie\movieapi\movie.core\bin\debug\netstandard2.1\movie.core.dll
+i:{00000000-0000-0000-0000-000000000000}:Movie.Core
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\movie.core\bin\debug\netstandard2.1\movie.core.dll
+++Constants
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\constants\
+++Conversation
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\conversation\
+++Dtos
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\dtos\
+++Entities
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\entities\
+++Account.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\entities\account.cs
+++AccountAdmin.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\entities\accountadmin.cs
+++Cast.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\entities\cast.cs
+++Comment.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\entities\comment.cs
+++Company.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\entities\company.cs
+++Genre.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\entities\genre.cs
+++MovieModel.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\entities\moviemodel.cs
+++FakerData
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\fakerdata\
+++Filters
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\filters\
+++Interfaces
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\interfaces\
+++Resources
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\resources\
+++Utils
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\utils\
+++PropertyExchange.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\utils\propertyexchange.cs
+++RandomNumber.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\utils\randomnumber.cs
+++AppSettings.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\appsettings.cs
+++Messages
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\constants\messages\
+++ApiRoutes.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\constants\apiroutes.cs
+++ArgumentEntities.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\constants\argumententities.cs
+++CacheEntryKeys.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\constants\cacheentrykeys.cs
+++ObjectExtension.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\conversation\objectextension.cs
+++AccountDto.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\dtos\accountdto.cs
+++CastDto.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\dtos\castdto.cs
+++MovieDto.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\dtos\moviedto.cs
+++TokenDto.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\dtos\tokendto.cs
+++CastFakeData.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\fakerdata\castfakedata.cs
+++CompanyFakeData.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\fakerdata\companyfakedata.cs
+++GenreFakeData.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\fakerdata\genrefakedata.cs
+++MovieFakeData.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\fakerdata\moviefakedata.cs
+++FIlterExtensions
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\filters\filterextensions\
+++MovieFilter.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\filters\moviefilter.cs
+++Base
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\interfaces\base\
+++IAccountReponsitory.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\interfaces\iaccountreponsitory.cs
+++ICastReponsitory.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\interfaces\icastreponsitory.cs
+++ICommentReponsitory.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\interfaces\icommentreponsitory.cs
+++ICompanyReponsitory.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\interfaces\icompanyreponsitory.cs
+++IGenresReponsitory.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\interfaces\igenresreponsitory.cs
+++IMovieReponsitory.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\interfaces\imoviereponsitory.cs
+++Request
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\resources\request\
+++Response
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\resources\response\
+++FirebaseAuthentication.net (3.7.2)
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:>992
+++FirebaseStorage.net (1.0.3)
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:>990
+++FireSharp (2.0.4)
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:>988
+++Microsoft.AspNetCore.Http (2.2.2)
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:>989
+++Newtonsoft.Json (13.0.1)
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:>986
+++Notify.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\constants\messages\notify.cs
+++MovieFilterExtension.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\filters\filterextensions\moviefilterextension.cs
+++MovieOrderbyExtension.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\filters\filterextensions\movieorderbyextension.cs
+++IFirebaseManager.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\interfaces\base\ifirebasemanager.cs
+++IUnitOfWork.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\interfaces\base\iunitofwork.cs
+++PasswordChangeRequest.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\resources\request\passwordchangerequest.cs
+++Builder
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\resources\response\builder\
+++CastDetailResponse.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\resources\response\castdetailresponse.cs
+++CastResponse.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\resources\response\castresponse.cs
+++MovieDetailResponnse.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\resources\response\moviedetailresponnse.cs
+++MovieResponse.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\resources\response\movieresponse.cs
+++MovieDetailBuilder.cs
+i:{1dfff934-273d-400d-939c-fff7dc523bde}:e:\movie\movie\movieapi\movie.core\resources\response\builder\moviedetailbuilder.cs
 ++Movie.ApiIntegration
 i:{00000000-0000-0000-0000-000000000000}:Movie.ApiIntegration
 ++Connected Services 
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>345
-++Dependencies
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>344
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>977
+++Properties
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\properties\
+++wwwroot
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\
+++Cache
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\cache\
+++Controllers
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\controllers\
+++AccountController.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\controllers\accountcontroller.cs
+++CastController.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\controllers\castcontroller.cs
+++CommentController.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\controllers\commentcontroller.cs
+++CompanyController.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\controllers\companycontroller.cs
+++GenresController.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\controllers\genrescontroller.cs
+++HomeController.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\controllers\homecontroller.cs
+++MovieController.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\controllers\moviecontroller.cs
+++HubContainer
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\hubcontainer\
+++MapperProfile
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\mapperprofile\
+++MapperExtensions
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\mapperprofile\mapperextensions\
+++CastProfile.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\mapperprofile\castprofile.cs
+++MovieProfile.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\mapperprofile\movieprofile.cs
+++ServerContainer
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\servercontainer\
+++GetLinkExtensions.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\servercontainer\getlinkextensions.cs
+++appsettings.json
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\appsettings.json
+++Program.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\program.cs
+++Startup.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\startup.cs
+++No service dependencies discovered
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>978
 ++Analyzers
 i:{26399518-5a04-4c76-a631-019cafa2f6ca}:analyzers
-++Frameworks
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:frameworks
-++Packages
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:packages
-++AutoMapper (10.1.1)
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>358
-++AutoMapper.Extensions.Microsoft.DependencyInjection (8.1.1)
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>355
-++FirebaseStorage.net (1.0.3)
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>359
-++FireSharp (2.0.4)
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>357
-++FluentValidation.AspNetCore (10.3.4)
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>356
-++Properties
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\properties\
-++wwwroot
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\
-++controllers
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\controllers\
-++css
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\css\
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\
-++js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\
-++lib
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\
-++message-box
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\message-box\
-++favicon.ico
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\favicon.ico
-++Controllers
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\controllers\
-++AccountController.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\controllers\accountcontroller.cs
-++HomeController.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\controllers\homecontroller.cs
-++Models
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\
-++Constants
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\constants\
-++ArgumentEntities.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\constants\argumententities.cs
-++DbContext
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\dbcontext\
-++FirebaseManager.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\dbcontext\firebasemanager.cs
-++Domains
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\domains\
-++Dtos
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\dtos\
-++MovieDtos.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\dtos\moviedtos.cs
-++Entities
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\entities\
-++Account.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\entities\account.cs
-++AccountAdmin.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\entities\accountadmin.cs
-++Cast.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\entities\cast.cs
-++Company.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\entities\company.cs
-++GeneratorEntities.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\entities\generatorentities.cs
-++Genre.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\entities\genre.cs
-++MovieModel.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\entities\moviemodel.cs
-++Interfaces
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\interfaces\
-++IAccount.cs
-++IFirebaseManager.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\interfaces\ifirebasemanager.cs
-++IMovie.cs
-++IUnitOfWork.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\interfaces\iunitofwork.cs
-++Messages
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\messages\
-++Notify.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\messages\notify.cs
-++Reponsitories
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\reponsitories\
-++Account.Reponsitory.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\reponsitories\account.reponsitory.cs
-++Movie.Reponsitory.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\reponsitories\movie.reponsitory.cs
-++UnitOfWork.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\reponsitories\unitofwork.cs
-++Rsources
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\rsources\
-++Request
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\rsources\request\
-++Response
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\rsources\response\
-++AppSettings.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\appsettings.cs
-++Views
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\views\
-++Account
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\views\account\
-++Index.cshtml
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\views\account\index.cshtml
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\views\home\index.cshtml
-++Home
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\views\home\
-++AccessDenied.cshtml
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\views\home\accessdenied.cshtml
-++Error404.cshtml
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\views\home\error404.cshtml
-++NotFoundView.cshtml
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\views\home\notfoundview.cshtml
-++Shared
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\views\shared\
-++_Layout.cshtml
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\views\shared\_layout.cshtml
-++_Menu.cshtml
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\views\shared\_menu.cshtml
-++appsettings.json
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\appsettings.json
-++Program.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\program.cs
-++Startup.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\startup.cs
-++No service dependencies discovered
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>346
-++Microsoft.AspNetCore.Analyzers
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\program files\dotnet\sdk\6.0.100-rc.2.21505.57\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
-++Microsoft.AspNetCore.Components.Analyzers
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\program files\dotnet\sdk\6.0.100-rc.2.21505.57\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
-++Microsoft.AspNetCore.Mvc.Analyzers
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\program files\dotnet\sdk\6.0.100-rc.2.21505.57\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
-++Microsoft.AspNetCore.App
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\microsoft.aspnetcore.app
-++Microsoft.NETCore.App
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\microsoft.netcore.app
+++PublishProfiles
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\properties\publishprofiles\
+++ServiceDependencies
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\properties\servicedependencies\
 ++launchSettings.json
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\properties\launchsettings.json
-++account.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\controllers\account.js
-++main.css
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\css\main.css
-++bootstrap.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\bootstrap.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
-++chart.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\chart.js
-++dataTables.bootstrap.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\datatables.bootstrap.min.js
-++jquery.dataTables.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\jquery.datatables.min.js
-++jquery-3.2.1.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\jquery-3.2.1.min.js
-++layoutlogin.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\layoutlogin.js
-++main.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\main.js
-++popper.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\popper.min.js
-++required.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\required.js
-++select2.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\select2.min.js
-++sweetalert.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\sweetalert.min.js
-++sweetalert2@9.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\js\sweetalert2@9.js
-++bootstrap
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\
-++jquery
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery\
-++jquery-validation
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\
-++jquery-validation-unobtrusive
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation-unobtrusive\
-++toastr.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\message-box\toastr.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\properties\launchsettings.json
+++controllers
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\controllers\
+++css
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\css\
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\
+++js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\
+++lib
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\
+++message-box
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\message-box\
+++favicon.ico
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\favicon.ico
+++ISetCacheMemory.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\cache\isetcachememory.cs
+++SetCacheMemory.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\cache\setcachememory.cs
+++CommentHub.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\hubcontainer\commenthub.cs
+++MovieMapper.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\mapperprofile\mapperextensions\moviemapper.cs
 ++appsettings.Development.json
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\appsettings.development.json
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\appsettings.development.json
+++appsettings.Production.json
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\appsettings.production.json
+++Microsoft.AspNetCore.Analyzers
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.AspNetCore.App
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\microsoft.aspnetcore.app
+++Microsoft.NETCore.App
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\microsoft.netcore.app
+++Bogus (33.1.1)
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>1003
+++Bogus.Hollywood (33.1.1)
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>1001
+++FluentValidation.AspNetCore (10.3.4)
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>997
+++Microsoft.AspNetCore.SignalR.Core (1.1.0)
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>1000
+++Swashbuckle.AspNetCore (6.2.3)
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>996
+++Swashbuckle.AspNetCore.Swagger (6.2.3)
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>998
+++Swashbuckle.AspNetCore.SwaggerGen (6.2.3)
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>999
+++Swashbuckle.AspNetCore.SwaggerUI (6.2.3)
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:>1002
+++moview - Web Deploy.pubxml
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\properties\publishprofiles\moview - web deploy.pubxml
+++moview - Web Deploy
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\properties\servicedependencies\moview - web deploy\
+++account.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\controllers\account.js
+++main.css
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\css\main.css
+++bootstrap.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\bootstrap.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+++chart.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\chart.js
+++dataTables.bootstrap.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\datatables.bootstrap.min.js
+++jquery.dataTables.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\jquery.datatables.min.js
+++jquery-3.2.1.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\jquery-3.2.1.min.js
+++layoutlogin.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\layoutlogin.js
+++main.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\main.js
+++popper.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\popper.min.js
+++required.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\required.js
+++select2.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\select2.min.js
+++sweetalert.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\sweetalert.min.js
+++sweetalert2@9.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\js\sweetalert2@9.js
+++bootstrap
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\
+++jquery
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery\
+++jquery-validation
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\
+++jquery-validation-unobtrusive
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation-unobtrusive\
+++toastr.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\message-box\toastr.min.js
+++profile.arm.json
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\properties\servicedependencies\moview - web deploy\profile.arm.json
 ++dist
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery\dist\
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\dist\
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery\dist\
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\dist\
 ++LICENSE
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\license
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\license
 ++LICENSE.txt
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery\license.txt
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation-unobtrusive\license.txt
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery\license.txt
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation-unobtrusive\license.txt
 ++LICENSE.md
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\license.md
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\license.md
 ++jquery.validate.unobtrusive.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 ++jquery.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery\dist\jquery.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery\dist\jquery.js
 ++additional-methods.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\dist\additional-methods.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\dist\additional-methods.js
 ++jquery.validate.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\dist\jquery.validate.js
 ++jquery.validate.unobtrusive.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 ++bootstrap.css
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap.css
 ++bootstrap-grid.css
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 ++bootstrap-reboot.css
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
 ++bootstrap.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.js
 ++jquery.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery\dist\jquery.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery\dist\jquery.min.js
 ++additional-methods.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
 ++jquery.validate.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
 ++bootstrap.css.map
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
 ++bootstrap.min.css
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
 ++bootstrap-grid.css.map
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 ++bootstrap-grid.min.css
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
 ++bootstrap-reboot.css.map
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
 ++bootstrap-reboot.min.css
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
 ++bootstrap.bundle.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
 ++bootstrap.js.map
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
 ++jquery.min.map
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\jquery\dist\jquery.min.map
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\jquery\dist\jquery.min.map
 ++bootstrap.min.css.map
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
 ++bootstrap-grid.min.css.map
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
 ++bootstrap-reboot.min.css.map
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
 ++bootstrap.bundle.js.map
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
 ++bootstrap.bundle.min.js
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
 ++bootstrap.min.js.map
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 ++bootstrap.bundle.min.js.map
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
-++NewFolder
-++images
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\wwwroot\images\
-++Extensions
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\extensions\
-++UploadFile.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\extensions\uploadfile.cs
-++Configuration
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\configuration\
-++DependencyInjection.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\configuration\dependencyinjection.cs
-++IMovieReponsitory.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\interfaces\imoviereponsitory.cs
-++IAccountReponsitory.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\models\interfaces\iaccountreponsitory.cs
-++MapperProfile
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\mapperprofile\
-++MovieProfile.cs
-i:{26399518-5a04-4c76-a631-019cafa2f6ca}:c:\users\binhh\máy tính\movie\movieapi\apiintegration\mapperprofile\movieprofile.cs
+i:{26399518-5a04-4c76-a631-019cafa2f6ca}:e:\movie\movie\movieapi\apiintegration\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map

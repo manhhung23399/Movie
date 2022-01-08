@@ -34,10 +34,10 @@ namespace Movie.Core.FakerData
                         CompanyDetail dataDetail = JsonConvert.DeserializeObject<CompanyDetail>(resp);
                         var item = new Company
                         {
+                            Id = company.id,
                             Country = dataDetail.origin_country,
                             HeadQuarter = dataDetail.headquarters,
                             HomePage = dataDetail.homepage,
-                            Id = dataDetail.id,
                             Logo = "https://image.tmdb.org/t/p/w500" + dataDetail.logo_path,
                             Name = dataDetail.name
                         };

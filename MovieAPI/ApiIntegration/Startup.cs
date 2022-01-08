@@ -1,13 +1,19 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Movie.Core;
+using Movie.Core.Entities;
 using Movie.Infrastructure;
 using System;
 using System.Linq;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.OpenApi.Models;
+using Movie.ApiIntegration.Cache;
+using Microsoft.AspNetCore.Routing;
+using Movie.ApiIntegration.HubContainer;
+using Movie.ApiIntegration.BusinessException;
 
 namespace Movie
 {
@@ -26,18 +32,51 @@ namespace Movie
 
             configuration = builder.Build();
         }
-
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             var configSettings = configuration.GetSection("Firebase");
+            AppSettings settings = configSettings.Get<AppSettings>();
 
             services.AddSwaggerGen(c =>
                 c.SwaggerDoc("v1",
-                new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Movie API Integration", Version = "v1" })
-            ); 
+                new OpenApiInfo { Title = "Movie API Integration", Version = "v1" })
+            );
+            services.AddMemoryCache();
+            services.AddResponseCaching();
+
+            services.AddSignalR();
+
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("My API", builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyHeader();
+                    builder.AllowAnyMethod();
+                });
+            });
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = settings.JwtAuthFirebase;
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = settings.JwtAuthFirebase,
+                    ValidateAudience = true,
+                    ValidAudience = settings.ProjectId,
+                    ValidateLifetime = true
+                };
+                options.SaveToken = true;
+            });
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.Configure<AppSettings>(configSettings);
             services.Configure<RouteOptions>(
@@ -47,6 +86,7 @@ namespace Movie
                     options.LowercaseQueryStrings = true;
                 });
             services.RegisterDIContainer(_env.WebRootPath);
+            services.AddScoped<ISetCacheMemory, SetCacheMemory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,19 +96,22 @@ namespace Movie
             app.UseSwagger();
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.ConfigureCustomExceptionMiddleware();
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.ConfigureCustomExceptionMiddleware();
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseCors("My API");
             app.UseRouting();
 
+            //middleware authentication: cookies auth, token auth
+            app.UseAuthentication();
+            //middleware authorization: policy base, role base, claim
             app.UseAuthorization();
 
             app.UseSwaggerUI(c =>
@@ -80,6 +123,10 @@ namespace Movie
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<CommentHub>("/movieHub", options =>
+                {
+                    options.Transports = Microsoft.AspNetCore.Http.Connections.HttpTransportType.WebSockets;
+                });
             });
         }
     }
