@@ -35,14 +35,16 @@ namespace Movie.ApiIntegration.Controllers
         [HttpPost]
         public async Task<IActionResult> AddGenre([FromBody]Genre genre)
         {
-            await _unitOfWork.Genre.AddOrUpdateGenresAsync(genre);
-            return Ok(ResponseBase.Success(Notify.NOTIFY_SUCCESS, (int)HttpStatusCode.Created));
+            genre.Id = Guid.NewGuid().ToString();
+            await _unitOfWork.Genre.AddOrUpdateGenresAsync(genre, genre.Id);
+            return Ok(ResponseBase.Success(Notify.NOTIFY_SUCCESS, (int)HttpStatusCode.Created, genre));
         }
         [HttpPut(ApiRoutes.QUERY)]
         public async Task<IActionResult> UpdateGenre([FromBody]Genre genre, [FromRoute] string id)
         {
+            genre.Id = id;
             await _unitOfWork.Genre.AddOrUpdateGenresAsync(genre, id);
-            return Ok(ResponseBase.Success(Notify.NOTIFY_UPDATE));
+            return Ok(ResponseBase.Success(Notify.NOTIFY_UPDATE, (int)HttpStatusCode.OK, genre));
         }
         [HttpGet]
         public async Task<ActionResult<List<Genre>>> GetListGenres()

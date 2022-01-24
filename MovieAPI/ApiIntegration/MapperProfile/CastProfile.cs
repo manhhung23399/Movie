@@ -11,9 +11,7 @@ namespace Movie.ApiIntegration.MapperProfile
         {
             CreateMap<CastDto, Cast>()
                 .ForMember(dto => dto.FileName,
-                conf => conf.MapFrom(opt => opt.Avatar != null ? opt.Avatar.FileName : ""))
-                .ForMember(dto => dto.Avatar,
-                conf => conf.MapFrom(opt => opt.AvatarUrl));
+                conf => conf.MapFrom(opt => opt.Avatar != null ? opt.Avatar.FileName : ""));
             //Mapper cast to cast response or cast detail response
             CreateMap<Cast, CastResponse>();
             CreateMap<Cast, CastDetailResponse>();

@@ -1,17 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace Movie.Core.Entities
+namespace Movie.Core.Dtos
 {
-    public class Company : EntityBase
+    public class CompanyDto
     {
+        public string Id { get; set; } = Guid.NewGuid().ToString();
         public string Name { get; set; }
-        public string Logo { get; set; }
-        public string FileName { get; set; }
+        public IFormFile Logo { get; set; }
         public string HomePage { get; set; }
         public string HeadQuarter { get; set; }
         public string Country { get; set; }

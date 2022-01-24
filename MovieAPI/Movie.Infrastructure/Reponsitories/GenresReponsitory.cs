@@ -59,10 +59,15 @@ namespace Movie.Infrastructure.Reponsitories
             {
                 string path = string.IsNullOrEmpty(genreId) ? $"{ArgumentEntities.Genre}/{genre.Id}" : $"{ArgumentEntities.Genre}/{genreId}";
                 var checkData = await _manager.Database().GetAsync(ArgumentEntities.Genre);
+
                 if (checkData.Body == "null") throw new Exception(Notify.NOTIFY_ERROR);
                 var data = checkData.ResultAs<Dictionary<string, Genre>>();
-                if (data.Values.ToList().FirstOrDefault(x => x.Name == genre.Name) != null)
-                    throw new Exception(Notify.NOTIFY_ISVALID_GENRES);
+
+                if (string.IsNullOrEmpty(genreId))
+                {
+                    if (data.Values.ToList().FirstOrDefault(x => x.Name == genre.Name) != null)
+                        throw new Exception(Notify.NOTIFY_ISVALID_GENRES);
+                }
                 await _manager.Database().SetAsync(path, genre);
             }
             catch(Exception ex)

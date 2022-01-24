@@ -14,6 +14,6 @@ namespace Movie.Core.Interfaces
         Task<object> GetMovieAsync(string movieId = "");
         Task DeleteMovieAsync(string movieId);
         Task AddOrUpdateMovieAsync(MovieModel movieDtos);
-        Task AddOrUpdateMovieAsync(MovieDto movieDtos, string movieId = "");
+        Task<MovieModel> AddOrUpdateMovieAsync(MovieDto movieDtos, string movieId = "");
     }
 }

@@ -14,6 +14,6 @@ namespace Movie.Core.Interfaces
         Task<object> GetCastAsync(string castId = "");
         Task DeleteCastAsync(string castId);
         Task AddOrUpdateCastAsync(Cast cast);
-        Task AddOrUpdateCastAsync(CastDto castDto, string castId = "");
+        Task<Cast> AddOrUpdateCastAsync(CastDto castDto, string castId = "");
     }
 }

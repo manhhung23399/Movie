@@ -13,7 +13,7 @@ namespace Movie.Core.Interfaces
     {
         Task<object> GetCompanyAsync(string companyId = "");
         Task DeleteCompanyAsync(string companyId);
-        Task AddOrUpdateCompanyAsync(Company company, string companyId = "");
+        Task<Company> AddOrUpdateCompanyAsync(CompanyDto company, string companyId = "");
         Task AddOrUpdateCompanyAsync(Company company);
     }
 }

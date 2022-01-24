@@ -38,6 +38,7 @@ namespace Movie.Infrastructure.Extensions
                     fileDownloadFromStorage = await _manager.Storage().Child(folder).Child(file.FileName).GetDownloadUrlAsync();
                     fs.Close();
                 }
+                File.Delete(filePath);
                 return fileDownloadFromStorage;
             }
             else

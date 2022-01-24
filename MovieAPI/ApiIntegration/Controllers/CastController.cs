@@ -10,12 +10,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net;
+using System.Threading;
+using Microsoft.AspNetCore.Http;
 
 namespace Movie.ApiIntegration.Controllers
 {
-    [ApiController]
     [Route(ApiRoutes.Cast.DEFAULT)]
-    public class CastController : Controller
+    public class CastController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -38,16 +40,17 @@ namespace Movie.ApiIntegration.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCast([FromBody]CastDto castDto)
+        public async Task<IActionResult> AddCast(CastDto castDto)
         {
-            await _unitOfWork.Cast.AddOrUpdateCastAsync(castDto);
-            return Ok(ResponseBase.Success(Notify.NOTIFY_SUCCESS));
+            var castAdded = await _unitOfWork.Cast.AddOrUpdateCastAsync(castDto, castDto.Id);
+            return Ok(ResponseBase.Success(Notify.NOTIFY_SUCCESS, (int)HttpStatusCode.Created, castAdded));
         }
         [HttpPut(ApiRoutes.QUERY)]
-        public async Task<IActionResult> UpdateCast([FromBody]CastDto castDto, [FromRoute] string id)
+        public async Task<IActionResult> UpdateCast(CastDto castDto, [FromRoute] string id)
         {
-            await _unitOfWork.Cast.AddOrUpdateCastAsync(castDto, id);
-            return Ok(ResponseBase.Success(Notify.NOTIFY_UPDATE));
+            castDto.Id = id;
+            var castUpdated = await _unitOfWork.Cast.AddOrUpdateCastAsync(castDto, id);
+            return Ok(ResponseBase.Success(Notify.NOTIFY_UPDATE, (int)HttpStatusCode.OK, castUpdated));
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CastResponse>>> GetListCast()

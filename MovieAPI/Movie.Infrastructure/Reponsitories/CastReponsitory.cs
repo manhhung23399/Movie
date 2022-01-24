@@ -34,7 +34,7 @@ namespace Movie.Infrastructure.Reponsitories
             catch (Exception ex) { throw ex; }
         }
 
-        public async Task AddOrUpdateCastAsync(CastDto castDto, string castId = "")
+        public async Task<Cast> AddOrUpdateCastAsync(CastDto castDto, string castId = "")
         {
             try
             {
@@ -45,15 +45,21 @@ namespace Movie.Infrastructure.Reponsitories
                     if (checkCastByName.Body != "null")
                     {
                         var data = checkCastByName.ResultAs<Dictionary<string, Cast>>();
-                        if (data.Values.ToList().FirstOrDefault(x => x.Name.Equals(castDto.Name)) != null)
-                            throw new Exception(Notify.NOTIFY_ISVALID_MOVIE);
+                        if (string.IsNullOrEmpty(castId))
+                        {
+                            if (data.Values.ToList().FirstOrDefault(x => x.Name.Equals(castDto.Name)) != null)
+                                throw new Exception(Notify.NOTIFY_ISVALID_MOVIE);
+                        }
                     }
                 }
 
                 Cast cast = new Cast();
                 cast = _mapper.Map<Cast>(castDto);
+
+                if (!string.IsNullOrEmpty(castId)) cast.Id = castId;
                 if (castDto.Avatar != null) cast.Avatar = await _file.UploadStreamAsync(castDto.Avatar, ArgumentEntities.Cast);
                 await _manager.Database().SetAsync(path, cast);
+                return cast;
             }
             catch (Exception ex)
             {
@@ -65,6 +71,8 @@ namespace Movie.Infrastructure.Reponsitories
         {
             try
             {
+                var cast = (await _manager.Database().GetAsync($"{ArgumentEntities.Company}/{castId}")).ResultAs<Cast>();
+                if(!string.IsNullOrEmpty(cast.FileName)) await _manager.Storage().Child(ArgumentEntities.Cast).Child(cast.FileName).DeleteAsync();
                 await _manager.Database().DeleteAsync($"{ArgumentEntities.Cast}/{castId}");
             }
             catch (Exception ex)

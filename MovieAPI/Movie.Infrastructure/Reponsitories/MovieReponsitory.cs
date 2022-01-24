@@ -27,12 +27,12 @@ namespace Movie.Infrastructure.Reponsitories
             _mapper = mapper;
             _file = file;
         }
-        public async Task AddOrUpdateMovieAsync(MovieDto movieDtos, string movieId = "")
+        public async Task<MovieModel> AddOrUpdateMovieAsync(MovieDto movieDtos, string movieId = "")
         {
             try
             {
                 MovieModel movie = new MovieModel();
-                string idMovie = string.IsNullOrEmpty(movieId) ? movie.Id : movieId;
+                string idMovie = string.IsNullOrEmpty(movieId) ? movieDtos.Id : movieId;
                 string path = $"{ArgumentEntities.Movie}/{idMovie}";
                 if (string.IsNullOrEmpty(movieId))
                 {
@@ -40,22 +40,50 @@ namespace Movie.Infrastructure.Reponsitories
                     if (checkMovieByTitle.Body != "null")
                     {
                         var data = checkMovieByTitle.ResultAs<Dictionary<string, MovieModel>>();
-                        if (data.Values.ToList().FirstOrDefault(x => x.Title.Equals(movieDtos.Title)) != null)
+                        var movies = data.Values.ToList();
+                        if (movies.FirstOrDefault(x => !string.IsNullOrEmpty(x.Title) ? x.Title.Equals(movieDtos.Title) : false) != null)
                             throw new Exception(Notify.NOTIFY_ISVALID_MOVIE);
                     }
                 }
 
-                if (movieDtos.Poster != null) movie.Poster = await _file.UploadStreamAsync(movieDtos.Poster, ArgumentEntities.Movie);
-                if (movieDtos.BackDrop != null) movie.BackDrop = await _file.UploadStreamAsync(movieDtos.BackDrop, ArgumentEntities.Movie);
                 if (string.IsNullOrEmpty(movieId))
                 {
                     movie = _mapper.Map<MovieModel>(movieDtos);
+                    
+                    movie.Poster = movieDtos.Poster != null ? await _file.UploadStreamAsync(movieDtos.Poster, ArgumentEntities.Movie) : "";
+                    movie.BackDrop = movieDtos.BackDrop != null ? await _file.UploadStreamAsync(movieDtos.BackDrop, ArgumentEntities.Movie) : "";
+
+                    if (!string.IsNullOrEmpty(movieDtos.PosterLink)) movie.Poster = movieDtos.PosterLink;
+                    if (!string.IsNullOrEmpty(movieDtos.BackDropLink)) movie.BackDrop = movieDtos.BackDropLink;
+
                     await _manager.Database().SetAsync(path, movie);
+                    return movie;
                 }
                 else
                 {
-                    var updatedMovie = movieDtos.ReClass();
-                    await _manager.Database().UpdateAsync(path, updatedMovie);
+                    var movieUpdated = (await _manager.Database().GetAsync(path)).ResultAs<MovieModel>();
+                    if (movieDtos.Poster != null)
+                    {
+                        movieUpdated.Poster = await _file.UploadStreamAsync(movieDtos.Poster, ArgumentEntities.Movie);
+                    }
+                    if(movieDtos.BackDrop != null)
+                    {
+                        movieUpdated.BackDrop = await _file.UploadStreamAsync(movieDtos.BackDrop, ArgumentEntities.Movie);
+                    }
+                    if (!string.IsNullOrEmpty(movieDtos.PosterLink)) movieUpdated.Poster = movieDtos.PosterLink;
+                    if (!string.IsNullOrEmpty(movieDtos.BackDropLink)) movieUpdated.BackDrop = movieDtos.BackDropLink;
+                    movieUpdated.Title = movieDtos.Title;
+                    movieUpdated.Description = movieDtos.Description;
+                    movieUpdated.Sources = new Sources
+                    {
+                        mPhimMoi = movieDtos.Sources
+                    };
+                    movieUpdated.Genres = movieDtos.Genres;
+                    movieUpdated.Companies = movieDtos.Companies;
+                    movieUpdated.Casts = movieDtos.Casts;
+                    movieUpdated.DateRelease = movieDtos.DateRelease;
+                    await _manager.Database().SetAsync(path, movieUpdated);
+                    return movieUpdated;
                 }
             }
             catch(Exception ex)
@@ -81,10 +109,9 @@ namespace Movie.Infrastructure.Reponsitories
             try
             {
                 var data = (MovieModel)await this.GetMovieAsync(movieId);
-                var task1 = _manager.Storage().Child(ArgumentEntities.Movie).Child(data.PosterName).DeleteAsync();
-                var task2 = _manager.Storage().Child(ArgumentEntities.Movie).Child(data.BackDropName).DeleteAsync();
-                var task3 = _manager.Database().DeleteAsync($"{ArgumentEntities.Movie}/{movieId}");
-                Task.WaitAll(task1, task2, task3);
+                if (!string.IsNullOrEmpty(data.PosterName)) _manager.Storage().Child(ArgumentEntities.Movie).Child(data.PosterName).DeleteAsync();
+                if (!string.IsNullOrEmpty(data.BackDropName)) _manager.Storage().Child(ArgumentEntities.Movie).Child(data.BackDropName).DeleteAsync();
+                _manager.Database().DeleteAsync($"{ArgumentEntities.Movie}/{movieId}");
             }
             catch (Exception ex)
             {

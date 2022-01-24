@@ -14,10 +14,10 @@ using Movie.ApiIntegration.Cache;
 using Movie.Core.Filters.FIlterExtensions;
 using Movie.ApiIntegration.ServerContainer;
 using Movie.Infrastructure.Extensions.Generics;
+using System.Net;
 
 namespace Movie.ApiIntegration.Controllers
 {
-    [ApiController]
     [Route(ApiRoutes.Movie.DEFAULT)]
     public class MovieController : ControllerBase
     {
@@ -47,18 +47,23 @@ namespace Movie.ApiIntegration.Controllers
                 async movie => await _unitOfWork.Movie.AddOrUpdateMovieAsync(movie));
             return Ok();
         }
+
         [HttpPost]
-        public async Task<IActionResult> AddMovie([FromBody] MovieDto movieDtos)
+        public async Task<IActionResult> AddMovie(MovieDto movieDtos)
         {
-            await _unitOfWork.Movie.AddOrUpdateMovieAsync(movieDtos);
-            return Ok(ResponseBase.Success(Notify.NOTIFY_SUCCESS));
+            var movieAdded = await _unitOfWork.Movie.AddOrUpdateMovieAsync(movieDtos);
+            var movie = _mapper.Map<IEnumerable<MovieResponse>>(movieAdded);
+            return Ok(ResponseBase.Success(Notify.NOTIFY_SUCCESS, (int)HttpStatusCode.Created, movie));
         }
+
         [HttpPut(ApiRoutes.QUERY)]
-        public async Task<IActionResult> UpdateMovie([FromBody] MovieDto movieDtos, [FromRoute] string id)
+        public async Task<IActionResult> UpdateMovie(MovieDto movieDtos, [FromRoute] string id)
         {
-            await _unitOfWork.Movie.AddOrUpdateMovieAsync(movieDtos, id);
-            return Ok(ResponseBase.Success(Notify.NOTIFY_UPDATE));
+            var movieUpdated = await _unitOfWork.Movie.AddOrUpdateMovieAsync(movieDtos, id);
+            var movie = _mapper.Map<MovieResponse>(movieUpdated);
+            return Ok(ResponseBase.Success(Notify.NOTIFY_UPDATE, (int)HttpStatusCode.OK, movie));
         }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MovieResponse>>> GetMovie(
             [FromQuery]string filter,
@@ -78,7 +83,12 @@ namespace Movie.ApiIntegration.Controllers
             var movies = _mapper.Map<IEnumerable<MovieResponse>>(result);
             return Ok(ResponseBase.Success(movies));
         }
-
+        [HttpGet("{movieId}/value")]
+        public async Task<IActionResult> GetCurrentMovieValue([FromRoute]string movieId)
+        {
+            MovieModel resultDetail = (MovieModel)await _unitOfWork.Movie.GetMovieAsync(movieId);
+            return Ok(ResponseBase.Success(_mapper.Map<MovieDetailResponseAD>(resultDetail)));
+        }
         [HttpGet("{movieId}")]
         public async Task<IActionResult> GetCurrentMovie([FromRoute]string movieId)
         {
